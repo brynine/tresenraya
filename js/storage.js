@@ -22,9 +22,19 @@ console.error('Error guardando historial', e);
 }
 
 
-export function addRecord(record){
+export function addRecord(players, winner, moves, duration){
 const h = loadHistory();
-h.unshift(record); // última primera
+
+const record = {
+    player1: players?.player1 || 'Jugador 1',
+    player2: players?.player2 || 'Jugador 2',
+    winner: winner || 'Empate',
+    moves: moves || 0,
+    duration: duration || '0s',
+    date: new Date().toLocaleDateString(),
+};
+
+h.push(record); // última primera
 saveHistory(h);
 }
 

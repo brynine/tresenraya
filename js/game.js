@@ -1,5 +1,3 @@
-import { loadHistory, addRecord, saveHistory, clearHistory, exportHistory } from './storage.js';
-
 //Estado del juego
 let boardState = Array(9).fill(null);
 let currentPlayer = 'X';
@@ -8,6 +6,9 @@ let moveCount = 0;
 let timerInterval = null;
 let startTime = null;
 let lastWinner = null;
+
+import { loadHistory, addRecord, saveHistory, clearHistory, exportHistory } from './storage.js';
+
 
 //Referencias al DOM
 const setupForm = document.getElementById('setup-form');
@@ -165,6 +166,7 @@ function renderHistory() {
   history.forEach(h => {
     const row = document.createElement('tr');
     row.innerHTML = `
+    
       <td>${h.player1} vs ${h.player2}</td>
       <td>${h.winner}</td>
       <td>${h.moves}</td>
