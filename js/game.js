@@ -6,6 +6,7 @@ let moveCount = 0;
 let timerInterval = null;
 let startTime = null;
 let lastWinner = null;
+let gameStarted = false;
 
 import { loadHistory, addRecord, saveHistory, clearHistory, exportHistory } from './storage.js';
 
@@ -68,8 +69,14 @@ function bindEvents() {
 function onStart(e) {
   e.preventDefault();
 
-  const player1 = document.getElementById('player1').value.trim() || 'Jugador 1';
-  const player2 = document.getElementById('player2').value.trim() || 'Jugador 2';
+  const player1 = document.getElementById('player1').value.trim();
+  const player2 = document.getElementById('player2').value.trim();
+
+  if (!player1 || !player2){
+    showModal('debes ingresar el nombre de ambos jugadores');
+    return;
+  }
+
   const first = document.querySelector('input[name="first"]:checked')?.value || 'X';
 
   players = { player1, player2 };
@@ -77,6 +84,7 @@ function onStart(e) {
   boardState = Array(9).fill(null);
   moveCount = 0;
   lastWinner = null;
+  gameStarted = true;
 
   renderBoard();
   startTimer();
@@ -85,6 +93,12 @@ function onStart(e) {
 
 //Lógica del tablero
 function onCellClick(index) {
+
+  if(!gameStarted){
+    updateStatus('Debes iniciar la partida para poder jugar');
+    return;
+  }
+
   if (boardState[index] || checkWinner(boardState)) return;
   boardState[index] = currentPlayer;
   moveCount++;
@@ -93,12 +107,15 @@ function onCellClick(index) {
   const winner = checkWinner(boardState);
   if (winner) {
     stopTimer();
-    updateStatus(`Ganó ${getCurrentPlayerName()} (${winner}) 🎉`);
     addRecord(players, getCurrentPlayerName(), moveCount, timerEl.textContent);
+    renderHistory();
+    showModal(`Gano ${getCurrentPlayerName()} (${winner}) 🎉 `);
   } else if (moveCount === 9) {
     stopTimer();
-    updateStatus('Empate 🤝');
     addRecord(players, 'Empate', moveCount, timerEl.textContent);
+    gameStarted = false;
+    renderHistory();
+    showModal('Empate')
   } else {
     currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
     updateStatus(`${getCurrentPlayerName()} (${currentPlayer}) — tu turno`);
@@ -194,10 +211,18 @@ function onNewGame() {
   stopTimer();
   updateStatus('Completa el formulario e inicia la partida.');
   renderBoard();
+  gameStarted=false;
 }
 
 function onExport() {
-  exportHistory();
+  const data = exportHistory();
+  const blob = new Blob([data], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'historial_tres_en_raya.json';
+  a.click();
+  URL.revokeObjectURL(url);
 }
 
 function onClearHistory() {
@@ -211,5 +236,18 @@ function onClearFilters() {
   filterTo.value = '';
   renderHistory();
 }
+
+function showModal(message) {
+  const modal = document.getElementById('customModal');
+  const modalMessage = document.getElementById('modalMessage');
+  modalMessage.textContent = message;
+  modal.style.display = 'block';
+
+  // Cerrar al hacer clic en el botón
+  document.getElementById('closeModal').onclick = function() {
+    modal.style.display = 'none';
+  };
+}
+
 
 init();
