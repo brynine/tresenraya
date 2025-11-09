@@ -33,6 +33,9 @@ Se puede usar el siguiente comando "python -m http.server 8000" y luego en el na
 
 2. Accesibilidad :
 Se usan atributos "aria-disabled", la etiquetas de botones es clara para una buena navegacion por teclado.
+3. Responsiva:
+El diseño se adapta a pantallas pequeñas mediante CSS grid y media querries.
+* <img width="1362" height="687" alt="image" src="https://github.com/user-attachments/assets/1067b3a4-5530-4649-bb40-574f865d3ede" />
 
-  
+
 
