@@ -1,4 +1,3 @@
-//Estado del juego
 let boardState = Array(9).fill(null);
 let currentPlayer = 'X';
 let players = { player1: 'Jugador 1', player2: 'Jugador 2' };
@@ -10,8 +9,6 @@ let gameStarted = false;
 
 import { loadHistory, addRecord, saveHistory, clearHistory, exportHistory } from './storage.js';
 
-
-//Referencias al DOM
 const setupForm = document.getElementById('setup-form');
 const boardEl = document.getElementById('board');
 const statusEl = document.getElementById('status');
@@ -22,13 +19,8 @@ const newgameBtn = document.getElementById('newgame-btn');
 const historyTable = document.querySelector('#history-table tbody');
 const exportBtn = document.getElementById('export-json');
 const clearHistoryBtn = document.getElementById('clear-history');
-const filterWinner = document.getElementById('filter-winner');
-const filterFrom = document.getElementById('filter-from');
-const filterTo = document.getElementById('filter-to');
-const applyFiltersBtn = document.getElementById('apply-filters');
-const clearFiltersBtn = document.getElementById('clear-filters');
 
-//Inicialización
+
 function init() {
   renderBoard();
   bindEvents();
@@ -42,10 +34,7 @@ function bindEvents() {
   newgameBtn.addEventListener('click', onNewGame);
   exportBtn.addEventListener('click', onExport);
   clearHistoryBtn.addEventListener('click', onClearHistory);
-  applyFiltersBtn.addEventListener('click', renderHistory);
-  clearFiltersBtn.addEventListener('click', onClearFilters);
-  
-  // Mover con teclado
+
   boardEl.addEventListener('keydown', e => {
     const activeCell = boardEl.querySelector('.cell:focus');
     if (!activeCell) return;
@@ -65,7 +54,6 @@ function bindEvents() {
   });
 }
 
-//Función de inicio
 function onStart(e) {
   e.preventDefault();
 
@@ -91,54 +79,74 @@ function onStart(e) {
   updateStatus(`${getCurrentPlayerName()} (${currentPlayer}) — tu turno`);
 }
 
-//Lógica del tablero
 function onCellClick(index) {
-
-  if(!gameStarted){
+  if (!gameStarted) {
     updateStatus('Debes iniciar la partida para poder jugar');
     return;
   }
 
   if (boardState[index] || checkWinner(boardState)) return;
+
   boardState[index] = currentPlayer;
   moveCount++;
+
   renderBoard();
+  moveCountEl.textContent = moveCount;
 
   const winner = checkWinner(boardState);
+
   if (winner) {
     stopTimer();
     addRecord(players, getCurrentPlayerName(), moveCount, timerEl.textContent);
     renderHistory();
-    showModal(`Gano ${getCurrentPlayerName()} (${winner}) 🎉 `);
+    showModal(`Ganó ${getCurrentPlayerName()} (${winner})`);
+    gameStarted = false;
   } else if (moveCount === 9) {
     stopTimer();
     addRecord(players, 'Empate', moveCount, timerEl.textContent);
     gameStarted = false;
     renderHistory();
-    showModal('Empate')
+    showModal('¡Empate!');
   } else {
     currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
     updateStatus(`${getCurrentPlayerName()} (${currentPlayer}) — tu turno`);
   }
 }
 
+
 function renderBoard() {
   boardEl.innerHTML = '';
+
   boardState.forEach((cell, i) => {
     const btn = document.createElement('button');
     btn.classList.add('cell');
     btn.dataset.index = i;
-    btn.textContent = cell ? cell : '';
+    btn.setAttribute('tabindex', '0');
+
+    if (cell === 'X') {
+      btn.textContent = 'X';
+      btn.classList.add('x');
+      btn.disabled = true;
+    } else if (cell === 'O') {
+      btn.textContent = 'O';
+      btn.classList.add('o');
+      btn.disabled = true;
+    } else {
+      btn.textContent = '';
+    }
+
     btn.addEventListener('click', () => onCellClick(i));
+
     boardEl.appendChild(btn);
   });
 }
+
+
 
 function updateStatus(msg) {
   statusEl.textContent = msg;
 }
 
-// Funciones auxiliares
 function getCurrentPlayerName() {
   return currentPlayer === 'X' ? players.player1 : players.player2;
 }
@@ -160,7 +168,6 @@ function checkWinner(b) {
   return null;
 }
 
-// Temporizador
 function startTimer() {
   startTime = Date.now();
   clearInterval(timerInterval);
@@ -176,7 +183,6 @@ function stopTimer() {
   clearInterval(timerInterval);
 }
 
-// Historial
 function renderHistory() {
   const history = loadHistory();
   historyTable.innerHTML = '';
@@ -195,7 +201,6 @@ function renderHistory() {
 }
 
 
-// Botones adicionales
 function onRematch() {
   boardState = Array(9).fill(null);
   moveCount = 0;
@@ -243,7 +248,6 @@ function showModal(message) {
   modalMessage.textContent = message;
   modal.style.display = 'block';
 
-  // Cerrar al hacer clic en el botón
   document.getElementById('closeModal').onclick = function() {
     modal.style.display = 'none';
   };

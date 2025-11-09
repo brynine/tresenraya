@@ -34,7 +34,7 @@ const record = {
     date: new Date().toLocaleDateString(),
 };
 
-h.push(record); // última primera
+h.push(record); 
 saveHistory(h);
 }
 
