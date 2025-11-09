@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tres en Raya</title>
-    <link rel="stylesheet" href="./css/styles.css" />
-    <link rel="icon" href="data:," />
+    <link rel="stylesheet" type="text/css" href="./css/styles.css">
+    <link rel="icon" href="data:,">
   </head>
 
   <body>
@@ -19,33 +19,34 @@
 
     <main class="container">
       <section id="seccionJuego" class="seccion visible">
-        <form id="setup-form" class="setup">
+        <h2>Juego</h2>
+              <form id="setup-form" class="setup">
           <div>
             <label for="player1">Jugador 1 (X):</label>
             <input
               type="text"
               id="player1"
-              placeholder="Nombre del jugador 1"
-            />
+              placeholder="Nombre del jugador 1">
           </div>
+
           <div>
             <label for="player2">Jugador 2 (O):</label>
             <input
               type="text"
               id="player2"
-              placeholder="Nombre del jugador 2"
-            />
+              placeholder="Nombre del jugador 2">
           </div>
 
           <fieldset>
             <legend>¿Quién empieza?</legend>
             <div class="start-options">
               <div class="radio-group">
-                <label
-                  ><input type="radio" name="first" value="X" checked />
-                  X</label
-                >
-                <label><input type="radio" name="first" value="O" /> O</label>
+                <label>
+                  <input type="radio" name="first" value="X" checked> X
+                </label>
+                <label>
+                  <input type="radio" name="first" value="O"> O
+                </label>
               </div>
               <button type="submit" class="btn_iniciar">Iniciar Partida</button>
             </div>
@@ -53,7 +54,8 @@
         </form>
 
         <section class="game">
-          <div id="status" class="status">Esperando partida...</div>
+          <h3>Tablero de juego</h3>
+                  <div id="status" class="status">Esperando partida...</div>
           <div id="board" class="board"></div>
 
           <div class="info">
@@ -114,7 +116,6 @@
       });
     </script>
 
-    <!-- Modal personalizado -->
     <div id="customModal" class="modal">
       <div class="modal-content">
         <p id="modalMessage"></p>
