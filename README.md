@@ -29,5 +29,6 @@ Se puede usar el siguiente comando "python -m http.server 8000" y luego en el na
 # Lista de comprobación de estándares
 1. Semántica HTML:
 * Se emplean etiquetas adecuadas (header, main, section, button, table, footer").
-
+2. ee
+  
 
