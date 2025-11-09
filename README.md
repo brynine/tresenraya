@@ -28,12 +28,6 @@ Se puede usar el siguiente comando "python -m http.server 8000" y luego en el na
 
 # Lista de comprobación de estándares
 1. Semántica HTML:
-* Se emplean etiquetas adecuadas //(header>, <main>, <section>, <button>, <table>, <footer>).
-  
-* <img width="466" height="217" alt="image" src="https://github.com/user-attachments/assets/802d5a4a-0a71-43a8-9937-b13a776253dd" />
+* Se emplean etiquetas adecuadas (header>, <main>, <section>, <button>, <table>, <footer>).
 
-2. Accesibilidad :
-Se usan atributos "aria-disabled", la etiquetas de botones es clara para una buena navegacion por teclado.
-  
-   
 
