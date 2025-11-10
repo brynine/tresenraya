@@ -5,7 +5,6 @@ Juego tres en raya aplicando estándares HTML5, CSS3 y JavaScript
 # Descripción
 El juevo del tres en raya es una versión divertida y didactica, para que dos jugadores se distraigan de lo cotidiano, cada jugados puede elegir un símbolo (X  o O)el cual se debe colocar en un tablero de 3x3. El objetivo y lo que lo hace divertido es alinear tres símbolos del mismo tipo en fila, columna o que sea diagonal antes que el otro jugador.
 Een el juego implementamos un sistema de historial,temporizador, efectos visuales y que sea adaptable a diferentes dispositivos, para que los jugadores puedan disfrutar.
-
 # Instrucciones de ejecución local
 1. Debemos descargar todos los archivos(HTML,CSS y JS).
 2. Gurdar la estructura:
