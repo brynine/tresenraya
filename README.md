@@ -1,52 +1,65 @@
 # INTEGRANTES:
+
 Robinson Redrovan, Bryam Mejia
+
 # GameTresEnRaya
+
 Juego tres en raya aplicando estándares HTML5, CSS3 y JavaScript
+
 # Descripción
-El juevo del tres en raya es una versión divertida y didactica, para que dos jugadores se distraigan de lo cotidiano, cada jugados puede elegir un símbolo (X  o O)el cual se debe colocar en un tablero de 3x3. El objetivo y lo que lo hace divertido es alinear tres símbolos del mismo tipo en fila, columna o que sea diagonal antes que el otro jugador.
+
+El juevo del tres en raya es una versión divertida y didactica, para que dos jugadores se distraigan de lo cotidiano, cada jugados puede elegir un símbolo (X o O)el cual se debe colocar en un tablero de 3x3. El objetivo y lo que lo hace divertido es alinear tres símbolos del mismo tipo en fila, columna o que sea diagonal antes que el otro jugador.
 Een el juego implementamos un sistema de historial,temporizador, efectos visuales y que sea adaptable a diferentes dispositivos, para que los jugadores puedan disfrutar.
+
 # Instrucciones de ejecución local
+
 1. Debemos descargar todos los archivos(HTML,CSS y JS).
-2. Gurdar la estructura:
+2. Guardar la estructura:
    /tresenraya/
-    index.html
-    /css/
-        styles.css
-    /js/
-        game.js
-        storage.js
-    /assets/ (opcional)
-    README.md
+   index.html
+   /css/
+   styles.css
+   /js/
+   game.js
+   storage.js
+   /assets/ (opcional)
+   README.md
 3. El proyecto utiliza módulos de JavaScript ya sea por el import o el export, que debemos ejecutar desde el servidor local y no directamente desde el archivo HTML(index.html).
-Se puede usar el siguiente comando "python -m http.server 8000" y luego en el navegador abrimos como "http://localhost:8000"
+   Se puede usar el siguiente comando "python -m http.server 8000" y luego en el navegador abrimos como "http://localhost:8000"
 
 # Decisiones Técnicas
+
 1. Para el almacenamiento se uso el LocalStorage ya que es una solucion simple,rapida y adecuada para guardar pequeñas cantidades de datos, como en este caso que el historial de las partidas.
 2. La estructura de los datos:
-* El estado del tablero lo guardamos en un array de 9 posiciones, lo cual representa las celdas del tablero, cada uno de los movimiento lo actualiza en el arreglo y el resultado se almacena en el hisotrial mediante los objetos como ( jugaodr1:"X") , ( jugador2: "O" ), (ganador: jugador1), (fecha) y (duración).  El historial se gestiona mediante funciones de storage como guardar, cargar,etc.
+
+- El estado del tablero lo guardamos en un array de 9 posiciones, lo cual representa las celdas del tablero, cada uno de los movimiento lo actualiza en el arreglo y el resultado se almacena en el hisotrial mediante los objetos como ( jugaodr1:"X") , ( jugador2: "O" ), (ganador: jugador1), (fecha) y (duración). El historial se gestiona mediante funciones de storage como guardar, cargar,etc.
 
 # Lista de comprobación de estándares
+
 1. Semántica HTML:
-* Se emplean etiquetas adecuadas (header, main, section, button, table, footer").
-* <img width="466" height="217" alt="image" src="https://github.com/user-attachments/assets/802d5a4a-0a71-43a8-9937-b13a776253dd" />
+
+- Se emplean etiquetas adecuadas (header, main, section, button, table, footer").
+- <img width="466" height="217" alt="image" src="https://github.com/user-attachments/assets/802d5a4a-0a71-43a8-9937-b13a776253dd" />
 
 2. Accesibilidad :
-Se usan atributos "aria-disabled", la etiquetas de botones es clara para una buena navegacion por teclado.
+   Se usan atributos "aria-disabled", la etiquetas de botones es clara para una buena navegacion por teclado.
 3. Responsiva:
-El diseño se adapta a pantallas pequeñas mediante CSS grid y media querries.
-* <img width="1362" height="687" alt="image" src="https://github.com/user-attachments/assets/1067b3a4-5530-4649-bb40-574f865d3ede" />
-* ![WhatsApp Image 2025-11-09 at 6 36 18 PM](https://github.com/user-attachments/assets/8c0d7346-9dea-4b7f-92bb-ce709769a7e2)
-* ![WhatsApp Image 2025-11-09 at 6 36 18 PM (1)](https://github.com/user-attachments/assets/7d9ae003-876c-4fbd-97e1-8c4d11b23d0f)
+   El diseño se adapta a pantallas pequeñas mediante CSS grid y media querries.
+
+- <img width="1362" height="687" alt="image" src="https://github.com/user-attachments/assets/1067b3a4-5530-4649-bb40-574f865d3ede" />
+- ![WhatsApp Image 2025-11-09 at 6 36 18 PM](https://github.com/user-attachments/assets/8c0d7346-9dea-4b7f-92bb-ce709769a7e2)
+- ![WhatsApp Image 2025-11-09 at 6 36 18 PM (1)](https://github.com/user-attachments/assets/7d9ae003-876c-4fbd-97e1-8c4d11b23d0f)
 
 # Evidencias de validación
+
 1. Validación W3C (HTML)
-   * <img width="1366" height="768" alt="Captura de pantalla (2140)" src="https://github.com/user-attachments/assets/1a723d3e-5763-4460-b466-02989b3ad441" />
+   - <img width="1366" height="768" alt="Captura de pantalla (2140)" src="https://github.com/user-attachments/assets/1a723d3e-5763-4460-b466-02989b3ad441" />
 2. Validación W3C (CSS)
-   * <img width="1366" height="768" alt="Captura de pantalla (2141)" src="https://github.com/user-attachments/assets/1e7d4581-edc1-4fe5-aa04-604138e7dbc1" />
-   * <img width="1366" height="768" alt="Captura de pantalla (2142)" src="https://github.com/user-attachments/assets/4b51e81a-7444-4360-a83e-cf39e70279dd" />
+   - <img width="1366" height="768" alt="Captura de pantalla (2141)" src="https://github.com/user-attachments/assets/1e7d4581-edc1-4fe5-aa04-604138e7dbc1" />
+   - <img width="1366" height="768" alt="Captura de pantalla (2142)" src="https://github.com/user-attachments/assets/4b51e81a-7444-4360-a83e-cf39e70279dd" />
 
+El diseño se adapta a pantallas pequeñas mediante CSS grid y media querries.
 
-
-
-
-
+- <img width="1362" height="687" alt="image" src="https://github.com/user-attachments/assets/1067b3a4-5530-4649-bb40-574f865d3ede" />
+- ![WhatsApp Image 2025-11-09 at 6 36 18 PM](https://github.com/user-attachments/assets/8c0d7346-9dea-4b7f-92bb-ce709769a7e2)
+- ![WhatsApp Image 2025-11-09 at 6 36 18 PM (1)](https://github.com/user-attachments/assets/7d9ae003-876c-4fbd-97e1-8c4d11b23d0f)

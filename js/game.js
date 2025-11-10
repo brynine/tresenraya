@@ -60,12 +60,12 @@ function onStart(e) {
   const player1 = document.getElementById('player1').value.trim();
   const player2 = document.getElementById('player2').value.trim();
 
-  if (!player1 || !player2){
-    showModal('debes ingresar el nombre de ambos jugadores');
+  if (player1 === "" || player2 === "") {
+    showModal("Debes ingresar el nombre de ambos jugadores.");
     return;
   }
 
-  const first = document.querySelector('input[name="first"]:checked')?.value || 'X';
+  const first = document.querySelector('input[name=\"first\"]:checked')?.value || "X";
 
   players = { player1, player2 };
   currentPlayer = first;
@@ -77,11 +77,12 @@ function onStart(e) {
   renderBoard();
   startTimer();
   updateStatus(`${getCurrentPlayerName()} (${currentPlayer}) — tu turno`);
+  rematchBtn.disabled = false;
 }
 
 function onCellClick(index) {
   if (!gameStarted) {
-    updateStatus('Debes iniciar la partida para poder jugar');
+    showModal('Debes iniciar la partida para poder jugar');
     return;
   }
 
@@ -202,11 +203,18 @@ function renderHistory() {
 
 
 function onRematch() {
+
+  if (!players.player1 || !players.player2) {
+    showModal("Primero debes iniciar una partida registrando a los jugadores.");
+    return;
+  }
+
   boardState = Array(9).fill(null);
   moveCount = 0;
   renderBoard();
   startTimer();
   updateStatus(`${getCurrentPlayerName()} (${currentPlayer}) — tu turno`);
+  gameStarted = true; 
 }
 
 function onNewGame() {
@@ -214,7 +222,7 @@ function onNewGame() {
   boardState = Array(9).fill(null);
   moveCount = 0;
   stopTimer();
-  updateStatus('Completa el formulario e inicia la partida.');
+  showModal('Completa el formulario e inicia la partida.');
   renderBoard();
   gameStarted=false;
 }

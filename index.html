@@ -19,77 +19,85 @@
 
     <main class="container">
       <section id="seccionJuego" class="seccion visible">
-        <h2>Registro de Jugadores</h2>
-        <form id="setup-form" class="setup">
-          <div>
-            <label for="player1">Jugador 1 (X):</label>
-            <input
-              type="text"
-              id="player1"
-              placeholder="Nombre del jugador 1"
-            />
-          </div>
-
-          <div>
-            <label for="player2">Jugador 2 (O):</label>
-            <input
-              type="text"
-              id="player2"
-              placeholder="Nombre del jugador 2"
-            />
-          </div>
-
-          <fieldset>
-            <legend>¿Quién empieza?</legend>
-            <div class="start-options">
-              <div class="radio-group">
-                <label>
-                  <input type="radio" name="first" value="X" checked /> X
-                </label>
-                <label> <input type="radio" name="first" value="O" /> O </label>
-              </div>
-              <button type="submit" class="btn_iniciar">Iniciar Partida</button>
+        <div class="game-container">
+          <h2>Registro de Jugadores</h2>
+          <form id="setup-form" class="setup">
+            <div>
+              <label for="player1">Jugador 1 (X):</label>
+              <input
+                type="text"
+                id="player1"
+                placeholder="Nombre del jugador 1"
+              />
             </div>
-          </fieldset>
-        </form>
 
-        <section class="game">
-          <h3>Tablero de juego</h3>
-          <div id="status" class="status">Esperando partida...</div>
-          <div id="board" class="board"></div>
+            <div>
+              <label for="player2">Jugador 2 (O):</label>
+              <input
+                type="text"
+                id="player2"
+                placeholder="Nombre del jugador 2"
+              />
+            </div>
 
-          <div class="info">
-            <p>Movimientos: <span id="move-count">0</span></p>
-            <p>Tiempo: <span id="timer">00:00</span></p>
-          </div>
+            <fieldset>
+              <legend>¿Quién empieza?</legend>
+              <div class="start-options">
+                <div class="radio-group">
+                  <label>
+                    <input type="radio" name="first" value="X" checked /> X
+                  </label>
+                  <label>
+                    <input type="radio" name="first" value="O" /> O
+                  </label>
+                </div>
+                <button type="submit" class="btn_iniciar">
+                  Iniciar Partida
+                </button>
+              </div>
+            </fieldset>
+          </form>
 
-          <div class="controls">
-            <button id="rematch-btn">Revancha</button>
-            <button id="newgame-btn">Nueva Partida</button>
-          </div>
-        </section>
+          <section class="game">
+            <h3>Tablero de juego</h3>
+            <div id="status" class="status">Esperando partida...</div>
+            <div id="board" class="board"></div>
+
+            <div class="info">
+              <p>Movimientos: <span id="move-count">0</span></p>
+              <p>Tiempo: <span id="timer">00:00</span></p>
+            </div>
+
+            <div class="controls">
+              <button id="rematch-btn">Revancha</button>
+              <button id="newgame-btn">Nueva Partida</button>
+            </div>
+          </section>
+        </div>
       </section>
 
       <section id="seccionHistorial" class="seccion oculto">
-        <h2>Historial de Partidas</h2>
+        <div class="game-container">
+          <h2>Historial de Partidas</h2>
 
-        <div class="history-controls">
-          <button id="export-json">Exportar JSON</button>
-          <button id="clear-history">Borrar Historial</button>
+          <div class="history-controls">
+            <button id="export-json">Exportar JSON</button>
+            <button id="clear-history">Borrar Historial</button>
+          </div>
+
+          <table id="history-table">
+            <thead>
+              <tr>
+                <th>Jugadores</th>
+                <th>Ganador</th>
+                <th>Movimientos</th>
+                <th>Duración</th>
+                <th>Fecha</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
         </div>
-
-        <table id="history-table">
-          <thead>
-            <tr>
-              <th>Jugadores</th>
-              <th>Ganador</th>
-              <th>Movimientos</th>
-              <th>Duración</th>
-              <th>Fecha</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
       </section>
     </main>
 
