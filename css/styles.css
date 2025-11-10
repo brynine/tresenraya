@@ -324,3 +324,45 @@ th, td {
     max-width: 150px;
   }
 }
+
+#setup-form fieldset {
+  border: 2px solid #000;
+  padding: 10px 14px;
+  border-radius: 8px;
+}
+
+#setup-form legend {
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0 6px;
+}
+
+.start-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media (max-width: 480px) {
+  #setup-form fieldset {
+    padding: 10px;
+  }
+
+  .start-options {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .radio-group {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .btn_iniciar {
+    align-self: center;
+  }
+}
+
+
