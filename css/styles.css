@@ -124,6 +124,7 @@ button {
   border: 2px solid #111;
   cursor: pointer;
   transition: all 0.3s ease;
+  font-family: 'Mifuente', sans-serif;
 }
 
 button:hover {
@@ -261,3 +262,14 @@ th, td {
   from { opacity: 0; transform: scale(0.9); }
   to { opacity: 1; transform: scale(1); }
 }
+
+.history-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 10px;
+}
+
+.history-wrapper table {
+  min-width: 500px;
+}
+
