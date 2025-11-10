@@ -349,19 +349,24 @@ th, td {
   }
 
   .start-options {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
   }
 
   .radio-group {
-    width: 100%;
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    width: auto;
   }
 
   .btn_iniciar {
-    align-self: center;
+    width: 150px;
+    text-align: center;
   }
 }
 
