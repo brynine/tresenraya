@@ -409,3 +409,23 @@ button:active {
   cursor: default;
   transform: none;
 }
+
+#board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
+  gap: 8px;
+  width: 100%;
+  max-width: 320px; /* evita que se deforme en celulares */
+  margin: 0 auto; /* centrar */
+}
+
+.cell {
+  aspect-ratio: 1; /* hace los cuadros perfectamente cuadrados */
+  font-size: 2rem;
+  background: #eef2f7;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
