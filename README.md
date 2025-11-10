@@ -38,6 +38,14 @@ El diseño se adapta a pantallas pequeñas mediante CSS grid y media querries.
 * ![WhatsApp Image 2025-11-09 at 6 36 18 PM](https://github.com/user-attachments/assets/8c0d7346-9dea-4b7f-92bb-ce709769a7e2)
 * ![WhatsApp Image 2025-11-09 at 6 36 18 PM (1)](https://github.com/user-attachments/assets/7d9ae003-876c-4fbd-97e1-8c4d11b23d0f)
 
+# Evidencias de validación
+1. Validación W3C (HTML)
+   * <img width="1366" height="768" alt="Captura de pantalla (2140)" src="https://github.com/user-attachments/assets/1a723d3e-5763-4460-b466-02989b3ad441" />
+2. Validación W3C (CSS)
+   * <img width="1366" height="768" alt="Captura de pantalla (2141)" src="https://github.com/user-attachments/assets/1e7d4581-edc1-4fe5-aa04-604138e7dbc1" />
+   * <img width="1366" height="768" alt="Captura de pantalla (2142)" src="https://github.com/user-attachments/assets/4b51e81a-7444-4360-a83e-cf39e70279dd" />
+
+
 
 
 
