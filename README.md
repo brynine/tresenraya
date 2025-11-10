@@ -36,6 +36,10 @@ Se usan atributos "aria-disabled", la etiquetas de botones es clara para una bue
 3. Responsiva:
 El diseño se adapta a pantallas pequeñas mediante CSS grid y media querries.
 * <img width="1362" height="687" alt="image" src="https://github.com/user-attachments/assets/1067b3a4-5530-4649-bb40-574f865d3ede" />
+* ![WhatsApp Image 2025-11-09 at 6 36 18 PM](https://github.com/user-attachments/assets/8c0d7346-9dea-4b7f-92bb-ce709769a7e2)
+* ![WhatsApp Image 2025-11-09 at 6 36 18 PM (1)](https://github.com/user-attachments/assets/7d9ae003-876c-4fbd-97e1-8c4d11b23d0f)
+
+
 
 
 
